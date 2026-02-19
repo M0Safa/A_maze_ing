@@ -32,8 +32,8 @@ def solve_maze(maze: MAZE, entry: Cord, exit: Cord) -> list[Cord]:
 
 def solution_dir(path: list[Cord], entry: Cord) -> str:
     result = ""
-    x, y = entry
-    for xn, yn in path:
+    (x, y) = entry
+    for (xn, yn) in path:
         if xn == x - 1:
             result += 'N'
         elif xn == x + 1:
@@ -42,5 +42,5 @@ def solution_dir(path: list[Cord], entry: Cord) -> str:
             result += 'E'
         elif yn == y - 1:
             result += 'W'
-        x, y = xn, yn
+        (x, y) = (xn, yn)
     return result

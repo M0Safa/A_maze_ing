@@ -47,7 +47,7 @@ def path_paint(maze: MAZE, grid: MAZE, rows: int, cols: int,
                 grid[vr][vc-1] = PATH
             if anim:
                 grid_disp(grid)
-                time.sleep(0.01)
+                time.sleep(0.005)
 
 
 def draw_maze(maze: MAZE, entry: Cord, exit: Cord, color: str,

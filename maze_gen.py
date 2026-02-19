@@ -23,6 +23,20 @@ def open_path(maze: MAZE, cord: Cord, dir: str) -> None:
     maze[xn][yn] = val_n
 
 
+def check_neigh(w: int, h: int, visited: list[Cord], cord: Cord):
+    (x, y) = cord
+    neigh = []
+    if (x - 1, y) not in visited and x != 0:
+        neigh.append((x - 1, y))
+    if (x, y + 1) not in visited and y != w - 1:
+        neigh.append((x, y + 1))
+    if (x + 1, y) not in visited and x != h - 1:
+        neigh.append((x + 1, y))
+    if (x, y - 1) not in visited and y != 0:
+        neigh.append((x, y - 1))
+    return neigh
+
+
 def maze_gen(p: dict) -> MAZE:
     w = p["WIDTH"]
     h = p["HEIGHT"]
@@ -37,18 +51,13 @@ def maze_gen(p: dict) -> MAZE:
         y = random.randint(0, w - 1)
     visited.append((x, y))
     stack = [(x, y)]
-    while len(visited) != (w * h):
-        neigh = []
-        if (x - 1, y) not in visited and x != 0:
-            neigh.append((x - 1, y))
-        if (x, y + 1) not in visited and y != w - 1:
-            neigh.append((x, y + 1))
-        if (x + 1, y) not in visited and x != h - 1:
-            neigh.append((x + 1, y))
-        if (x, y - 1) not in visited and y != 0:
-            neigh.append((x, y - 1))
+    while len(visited) < (w * h):
+        neigh = check_neigh(w, h, visited, (x, y))
         if not neigh:
-            (x, y) = stack.pop()
+            if p['ALGORITHM'] == "DFS":
+                (x, y) = stack.pop()
+            elif p['ALGORITHM'] == "HK":
+                (x, y) = hunt_kill(w, h, visited, stack)
             continue
         stack.append((x, y))
         (xn, yn) = random.choice(neigh)
@@ -63,8 +72,15 @@ def maze_gen(p: dict) -> MAZE:
             open_path(maze, (x, y), "West")
         (x, y) = (xn, yn)
     if not p['PERFECT']:
-        not_perfect(maze, 15)
+        not_perfect(maze, 20)
     return maze
+
+
+def hunt_kill(w: int, h: int, visited: list[Cord], stack: list[Cord]) -> Cord:
+    for (x, y) in stack:
+        if check_neigh(w, h, visited, (x, y)):
+            return (x, y)
+    return (0, 0)
 
 
 def not_perfect(maze: MAZE, percentage: int) -> None:
