@@ -45,6 +45,11 @@ def value_validation(params: dict) -> str:
         params["PERFECT"] = False
     else:
         return ("Perfect key must be a bool")
+
+    # algo validation
+    if params["ALGORITHM"] not in ["DFS", "HK"]:
+        return "Undefined algo choose DFS or HK"
+
     return "true"
 
 
@@ -70,13 +75,9 @@ def text_read() -> dict:
                     raise ValueError("enter only key and value " +
                                      "seperated with'='")
                 key, value = line.split('=')
-
                 if key == "ALGORITHM":
-                    if value not in ["DFS", "HK"]:
-                        raise ValueError("Undefined algo choose DFS or HK")
                     params[key] = value
                     continue
-
                 if key not in keys:
                     raise ValueError("enter only right key and once")
                 keys.remove(key)

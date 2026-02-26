@@ -1,7 +1,28 @@
-from maze_valid import text_read
-from maze_gen import maze_gen, MAZE
+from maze_valid import text_read, value_validation
+from maze_gen import maze_gen, MAZE, Cord
 from maze_solve import solution_dir, solve_maze
 from maze_draw import draw_maze
+
+
+class MazeGenerator:
+    def __init__(self, WIDTH: int, HEIGHT: int, ENTRY: Cord, EXIT: Cord,
+                 FILE: str, PERFECT: bool, ALGORITHM: str = "DFS") -> None:
+        self.par = {
+            "WIDTH": f"{WIDTH}",
+            "HEIGHT": f"{HEIGHT}",
+            "ENTRY": ",".join(str(x) for x in ENTRY),
+            "EXIT": ",".join(str(x) for x in EXIT),
+            "OUTPUT_FILE": FILE,
+            "PERFECT": f"{PERFECT}",
+            "ALGORITHM": ALGORITHM
+        }
+        msg = value_validation(self.par)
+        if msg != "true":
+            self.par = {}
+            raise ValueError(msg)
+
+    def generate()
+        
 
 
 def maze_output(par: dict, maze: MAZE, sol_dir: str) -> None:
