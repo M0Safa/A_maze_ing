@@ -1,6 +1,6 @@
-from maze_utils import is_open
+from .maze_utils import is_open
 from collections import deque
-from maze_gen import MAZE, Cord
+from .maze_gen import MAZE, Cord
 
 
 def solve_maze(maze: MAZE, entry: Cord, exit: Cord) -> list[Cord]:

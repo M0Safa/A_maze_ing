@@ -1,7 +1,7 @@
 import os
 import time
-from maze_utils import is_open, Forty_two_cord
-from maze_gen import MAZE, Cord
+from .maze_utils import is_open, Forty_two_cord
+from .maze_gen import MAZE, Cord
 
 
 def grid_disp(grid: MAZE):

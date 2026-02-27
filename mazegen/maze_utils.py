@@ -42,3 +42,16 @@ def intro_display() -> None:
     print("2. Show/Hide path from entry to exit")
     print("3. Rotate maze colors")
     print("4. Quit")
+
+
+def maze_output(par: dict, maze: list[list[str]], sol_dir: str) -> None:
+    with open(par["OUTPUT_FILE"], "w") as file:
+        for row in maze:
+            for char in row:
+                file.write(char)
+            file.write("\n")
+        file.write("\n")
+        file.write(f"{par['ENTRY'][0]},{par['ENTRY'][1]}\n")
+        file.write(f"{par['EXIT'][0]},{par['EXIT'][1]}\n")
+        file.write(sol_dir)
+        file.write("\n")

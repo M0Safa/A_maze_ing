@@ -1,6 +1,6 @@
 import sys
 import re
-from maze_utils import Forty_two_cord
+from .maze_utils import Forty_two_cord
 
 
 def value_validation(params: dict) -> str:

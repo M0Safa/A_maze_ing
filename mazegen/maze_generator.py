@@ -1,8 +1,8 @@
-from maze_valid import value_validation
-from maze_utils import maze_output
-from maze_gen import maze_gen, Cord, MAZE
-from maze_solve import solution_dir, solve_maze
-from maze_draw import draw_maze
+from .maze_valid import value_validation
+from .maze_utils import maze_output
+from .maze_gen import maze_gen, Cord, MAZE
+from .maze_solve import solution_dir, solve_maze
+from .maze_draw import draw_maze
 
 
 class MazeGenerator:
@@ -36,7 +36,7 @@ class MazeGenerator:
     def display(self, color: str, show_sol: bool, show_anim: bool) -> None:
         draw_maze(self.__maze, self.__par['ENTRY'], self.__par['EXIT'], color,
                   self.__sol, show_sol, show_anim)
-        
+
     def get_maze(self) -> MAZE:
         return self.__maze
 

@@ -1,5 +1,5 @@
 import random
-from maze_utils import open_dir, Forty_two_cord
+from .maze_utils import open_dir, Forty_two_cord
 from typing import List
 MAZE = List[List[str]]
 Cord = tuple[int, int]

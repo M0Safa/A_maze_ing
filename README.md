@@ -63,6 +63,8 @@ and use provided methodes:
                          par["ALGORITHM"], par["SEED"])
     maze.generate()
     maze.display(color, show_sol, show_animation)
+    maze.get_maze()
+    maze.get_solution()
 ```
 
 ## Resource

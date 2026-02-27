@@ -1,6 +1,7 @@
 from maze_valid import text_read
-from maze_utils import intro_display
 from mazegen import MazeGenerator
+from maze_utils import intro_display
+
 
 def main() -> None:
     colors = ["37", "33", "36"]
