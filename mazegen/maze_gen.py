@@ -23,16 +23,16 @@ def open_path(maze: MAZE, cord: Cord, dir: str) -> None:
     maze[xn][yn] = val_n
 
 
-def check_neigh(w: int, h: int, visited: list[Cord], cord: Cord):
+def check_neigh(w: int, h: int, vis: list[Cord], cord: Cord) -> list[Cord]:
     (x, y) = cord
     neigh = []
-    if (x - 1, y) not in visited and x != 0:
+    if (x - 1, y) not in vis and x != 0:
         neigh.append((x - 1, y))
-    if (x, y + 1) not in visited and y != w - 1:
+    if (x, y + 1) not in vis and y != w - 1:
         neigh.append((x, y + 1))
-    if (x + 1, y) not in visited and x != h - 1:
+    if (x + 1, y) not in vis and x != h - 1:
         neigh.append((x + 1, y))
-    if (x, y - 1) not in visited and y != 0:
+    if (x, y - 1) not in vis and y != 0:
         neigh.append((x, y - 1))
     return neigh
 
@@ -40,7 +40,7 @@ def check_neigh(w: int, h: int, visited: list[Cord], cord: Cord):
 def maze_gen(p: dict) -> MAZE:
     w = p["WIDTH"]
     h = p["HEIGHT"]
-    if p["SEED"] is not None:
+    if p["SEED"] != 0:
         random.seed(p["SEED"])
     forty_two = Forty_two_cord(w, h)
     visited = []

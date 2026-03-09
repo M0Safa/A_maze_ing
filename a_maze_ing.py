@@ -1,6 +1,7 @@
 from maze_valid import text_read
 from mazegen import MazeGenerator
 from maze_utils import intro_display
+Cord = tuple[int, int]
 
 
 def main() -> None:
@@ -12,9 +13,15 @@ def main() -> None:
     par = text_read()
     if not par:
         return
-    maze = MazeGenerator(par["WIDTH"], par["HEIGHT"], par["ENTRY"],
-                         par["EXIT"], par["OUTPUT_FILE"], par["PERFECT"],
-                         par["ALGORITHM"], par["SEED"])
+    width: int = par["WIDTH"]
+    height: int = par["HEIGHT"]
+    entry: Cord = par["ENTRY"]
+    exit: Cord = par["EXIT"]
+    file: str = par["OUTPUT_FILE"]
+    perfect: bool = par["PERFECT"]
+    algo: str = par["ALGORITHM"]
+    seed: int = par["SEED"]
+    maze = MazeGenerator(width, height, entry, exit, file, perfect, algo, seed)
     maze.generate()
     maze.display(colors[col_i], show_sol, show_anim)
     while choice != 4:

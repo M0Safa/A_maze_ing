@@ -15,7 +15,7 @@ clean:
 	rm -rf .mypy_cache
 
 lint:
-	flake8 .
+	flake8 mazegen a_maze_ing.py maze_utils.py maze_valid.py
 	mypy . \
 		--warn-return-any \
 		--warn-unused-ignores \
@@ -23,8 +23,4 @@ lint:
 		--disallow-untyped-defs \
 		--check-untyped-defs
 
-lint-strict:
-	flake8 .
-	mypy . --strict
-
-.PHONY: install run debug clean lint lint-strict
+.PHONY: install run debug clean lint

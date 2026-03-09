@@ -51,8 +51,7 @@ def value_validation(params: dict) -> str:
         return "Undefined algo choose DFS or HK"
 
     # seed validation
-    if params["SEED"] is not None:
-        params["SEED"] = int(params["SEED"])
+    params["SEED"] = int(params["SEED"])
     return "true"
 
 
@@ -64,7 +63,7 @@ def text_read() -> dict:
                 "OUTPUT_FILE", "PERFECT"]
         params = {
             'ALGORITHM': "DFS",
-            'SEED': None
+            'SEED': 0
         }
         file_name = sys.argv[1]
         with open(file_name, "r") as file:

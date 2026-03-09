@@ -6,13 +6,13 @@ from .maze_utils import Forty_two_cord
 def value_validation(params: dict) -> str:
     # Width validation
     params["WIDTH"] = int(params["WIDTH"])
-    if params["WIDTH"] < 9:
-        return "WIDTH must be bigger than 9"
+    if params["WIDTH"] < 10:
+        return "WIDTH must be bigger than 10"
 
     # height validation
     params["HEIGHT"] = int(params["HEIGHT"])
-    if params["HEIGHT"] < 7:
-        return "Height must be bigger than 7"
+    if params["HEIGHT"] < 10:
+        return "Height must be bigger than 10"
     f_t = Forty_two_cord(params["WIDTH"], params["HEIGHT"])
 
     # Entry and Exit validation

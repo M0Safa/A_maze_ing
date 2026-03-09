@@ -4,7 +4,7 @@ from .maze_utils import is_open, Forty_two_cord
 from .maze_gen import MAZE, Cord
 
 
-def grid_disp(grid: MAZE):
+def grid_disp(grid: MAZE) -> None:
     os.system('clear')
     for row in grid:
         print("".join(row))

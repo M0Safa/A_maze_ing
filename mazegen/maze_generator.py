@@ -8,7 +8,7 @@ from .maze_draw import draw_maze
 class MazeGenerator:
     def __init__(self, WIDTH: int, HEIGHT: int, ENTRY: Cord, EXIT: Cord,
                  FILE: str, PERFECT: bool, ALGORITHM: str = "DFS",
-                 SEED: int = None) -> None:
+                 SEED: int = 0) -> None:
         self.__par = {
             "WIDTH": f"{WIDTH}",
             "HEIGHT": f"{HEIGHT}",
@@ -23,18 +23,20 @@ class MazeGenerator:
         if msg != "true":
             self.__par = {}
             raise ValueError(msg)
-        self.__maze = []
-        self.__sol = []
+        self.__maze: list[list[str]] = []
+        self.__sol: list[tuple[int, int]] = []
+        self.__entry: Cord = ENTRY
+        self.__exit: Cord = EXIT
 
     def generate(self) -> None:
         self.__maze = maze_gen(self.__par)
-        self.__sol = solve_maze(self.__maze, self.__par['ENTRY'],
-                                self.__par['EXIT'])
-        sol_dir = solution_dir(self.__sol, self.__par['ENTRY'])
+        self.__sol = solve_maze(self.__maze, self.__entry,
+                                self.__exit)
+        sol_dir = solution_dir(self.__sol, self.__entry)
         maze_output(self.__par, self.__maze, sol_dir)
 
     def display(self, color: str, show_sol: bool, show_anim: bool) -> None:
-        draw_maze(self.__maze, self.__par['ENTRY'], self.__par['EXIT'], color,
+        draw_maze(self.__maze, self.__entry, self.__exit, color,
                   self.__sol, show_sol, show_anim)
 
     def get_maze(self) -> MAZE:

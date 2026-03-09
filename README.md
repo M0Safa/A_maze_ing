@@ -89,7 +89,7 @@ ENTRY=0,0 #(mandatory) can't be float or negative
 EXIT=19,19 #(mandatory) can't be float or negative
 OUTPUT_FILE=maze.txt #(mandatory) where the output should be written
 PERFECT=0 #(mandatory) defines if the maze will have two or one solution
-seed=333   #(optional) negatives and 0 are included
+seed=333   #(optional) 0 is excluded
 algorithm=DFS #(optional) can use HK instead
 ```
 
@@ -114,9 +114,9 @@ The class MazeGenerator in mazegen package. you can used as demonstarated in the
 
 - **Team members & roles**
     
-    - `mosafa`: .
+    - `mosafa`: maze_solve and maze_draw.
         
-    - `melhajj`: .
+    - `melhajj`: maze_gen and maze_valid.
         
 - **Planning & evolution**
     
