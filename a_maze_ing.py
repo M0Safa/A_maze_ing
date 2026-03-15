@@ -1,11 +1,10 @@
-from maze_valid import text_read
+from helper import text_read, intro_display
 from mazegen import MazeGenerator
-from maze_utils import intro_display
 Cord = tuple[int, int]
 
 
 def main() -> None:
-    colors = ["37", "33", "36"]
+    colors = ["37", "33", "36", "91", "90", "92"]
     col_i = 0
     choice = 1
     show_sol = False

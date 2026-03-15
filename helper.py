@@ -1,6 +1,16 @@
 import sys
 import re
-from maze_utils import Forty_two_cord
+
+
+def Forty_two_cord(width: int, height: int) -> list[tuple[int, int]]:
+    a = int(height / 2)
+    b = int(width / 2)
+    forty_two = [(a - 2, b - 3), (a - 1, b - 3), (a, b - 3), (a, b - 2),
+                 (a, b - 1), (a + 1, b - 1), (a + 2, b - 1), (a - 2, b + 1),
+                 (a, b + 1), (a + 1, b + 1), (a + 2, b + 1), (a - 2, b + 2),
+                 (a, b + 2), (a + 2, b + 2), (a - 2, b + 3), (a - 1, b + 3),
+                 (a, b + 3), (a + 2, b + 3)]
+    return forty_two
 
 
 def value_validation(params: dict) -> str:
@@ -99,3 +109,11 @@ def text_read() -> dict:
         print(e)
         return {}
     return params
+
+
+def intro_display() -> None:
+    print("=== A-Maze-ing ===")
+    print("1. Re-generate a new maze")
+    print("2. Show/Hide path from entry to exit")
+    print("3. Rotate maze colors")
+    print("4. Quit")

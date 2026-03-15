@@ -15,7 +15,7 @@ clean:
 	rm -rf .mypy_cache
 
 lint:
-	flake8 mazegen a_maze_ing.py maze_utils.py maze_valid.py
+	flake8 .
 	mypy . \
 		--warn-return-any \
 		--warn-unused-ignores \
