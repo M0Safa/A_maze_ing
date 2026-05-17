@@ -29,7 +29,6 @@ def main() -> None:
             choice = int(input("Choice? (1-4):"))
         except ValueError:
             print("Please enter only a digit between (1-4)")
-            choice = 0
             continue
         if choice == 1:
             show_sol = False

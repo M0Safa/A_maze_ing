@@ -16,13 +16,13 @@ def Forty_two_cord(width: int, height: int) -> list[tuple[int, int]]:
 def value_validation(params: dict) -> str:
     # Width validation
     params["WIDTH"] = int(params["WIDTH"])
-    if params["WIDTH"] < 9:
-        return "WIDTH must be bigger than 9"
+    if params["WIDTH"] < 10:
+        return "WIDTH must be bigger than or equal 10"
 
     # height validation
     params["HEIGHT"] = int(params["HEIGHT"])
-    if params["HEIGHT"] < 7:
-        return "Height must be bigger than 7"
+    if params["HEIGHT"] < 10:
+        return "Height bigger than or equal 10"
     f_t = Forty_two_cord(params["WIDTH"], params["HEIGHT"])
 
     # Entry and Exit validation
@@ -31,9 +31,9 @@ def value_validation(params: dict) -> str:
             return f"{cord} must be two value seperated by ','"
         x, y = params[cord].split(',')
         params[cord] = int(y), int(x)
-        if int(y) > params["HEIGHT"] or int(y) < 0:
+        if int(y) >= params["HEIGHT"] or int(y) < 0:
             return ("y of entry is out of range")
-        if int(x) > params["WIDTH"] or int(x) < 0:
+        if int(x) >= params["WIDTH"] or int(x) < 0:
             return ("x of entry is out of range")
         if params[cord] in f_t:
             return (f"{cord} must not be in 42 logo")
