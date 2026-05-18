@@ -1,5 +1,6 @@
 from helper import text_read, intro_display
 from mazegen import MazeGenerator
+from typing import Any
 Cord = tuple[int, int]
 
 
@@ -19,7 +20,7 @@ def main() -> None:
     file: str = par["OUTPUT_FILE"]
     perfect: bool = par["PERFECT"]
     algo: str = par["ALGORITHM"]
-    seed: int = par["SEED"]
+    seed: Any = par["SEED"]
     maze = MazeGenerator(width, height, entry, exit, file, perfect, algo, seed)
     maze.generate()
     maze.display(colors[col_i], show_sol, show_anim)

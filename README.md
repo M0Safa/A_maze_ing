@@ -1,7 +1,7 @@
 # A_Maze_Ing
 
-This project has been created as part of the 42 curriculum by [mosafa]https://profile-v3.intra.42.fr/users/mosafa [melhajj]https://profile-
-v3.intra.42.fr/users/melhajj
+This project has been created as part of the 42 curriculum by [mosafa]https://profile-v3.intra.42.fr/users/mosafa [hsrour]https://profile-
+v3.intra.42.fr/users/hsrour
 
 ## Description
 
@@ -116,7 +116,7 @@ The class MazeGenerator in mazegen package. you can used as demonstarated in the
     
     - `mosafa`: maze_solve and maze_draw.
         
-    - `melhajj`: maze_gen and maze_valid.
+    - `hsrour`: maze_gen and maze_valid.
         
 - **Planning & evolution**
     

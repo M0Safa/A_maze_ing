@@ -40,7 +40,7 @@ def check_neigh(w: int, h: int, vis: list[Cord], cord: Cord) -> list[Cord]:
 def maze_gen(p: dict) -> MAZE:
     w = p["WIDTH"]
     h = p["HEIGHT"]
-    if p["SEED"] != 0:
+    if p["SEED"] is not None:
         random.seed(p["SEED"])
     forty_two = Forty_two_cord(w, h)
     visited = []

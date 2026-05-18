@@ -3,12 +3,13 @@ from .maze_utils import maze_output
 from .maze_gen import maze_gen, Cord, MAZE
 from .maze_solve import solution_dir, solve_maze
 from .maze_draw import draw_maze
+from typing import Any
 
 
 class MazeGenerator:
     def __init__(self, WIDTH: int, HEIGHT: int, ENTRY: Cord, EXIT: Cord,
                  FILE: str, PERFECT: bool, ALGORITHM: str = "DFS",
-                 SEED: int = 0) -> None:
+                 SEED: Any = None) -> None:
         self.__par = {
             "WIDTH": f"{WIDTH}",
             "HEIGHT": f"{HEIGHT}",
